@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="marker_id" type="id"/>
+    <item name="marker_remove_id" type="id"/>
+    <item name="marker_child_id" type="id"/>
+    <item name="marker_parent_id" type="id"/>
+</resources>

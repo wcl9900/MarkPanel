@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@id/marker_child_id"
+        android:layout_width="@dimen/marker_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/biaoji" />
+
+    <ImageView
+        android:id="@id/marker_remove_id"
+        android:layout_width="@dimen/marker_close_width"
+        android:layout_height="@dimen/marker_close_width"
+        android:layout_gravity="top|right"
+        android:src="@drawable/guanbi"
+        android:visibility="gone"/>
+</FrameLayout>
