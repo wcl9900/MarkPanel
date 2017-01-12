@@ -3,6 +3,7 @@
     标记面板，可向视图面板中加入标记点，可监听标记点的添加、移除、更新等回调处理
 
     效果图
+    
     ![image](https://github.com/wcl9900/MarkPanel/blob/5324ff3d79acc651b41a41ee5ddc2b74e0a38706/markpanel.gif)
 
     使用方式
