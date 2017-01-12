@@ -4,7 +4,7 @@
 
     效果图
     
-    ![image](https://raw.githubusercontent.com/wcl9900/MarkPanel/master/markpanel.gif)
+    ![image](https://github.com/wcl9900/MarkPanel/blob/master/markpanel.gif)
 
     使用方式
 
