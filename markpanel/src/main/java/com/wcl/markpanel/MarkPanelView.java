@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.PointF;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -82,6 +81,27 @@ public class MarkPanelView extends FrameLayout {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         fixMeasure();
+
+        int childCount = markerLayout.getChildCount();
+        for(int index = 0; index < childCount; index++){
+            View markerParent = markerLayout.getChildAt(index);
+            if( markerParent.getVisibility() != GONE ) {
+                MarkerLayoutParams markerLayoutParams = (MarkerLayoutParams) markerParent.getLayoutParams();
+                View markerView = (View) markerParent.getTag(R.id.marker_child_id);
+                int offSetX, offSetY;
+                if(markerParent != markerView){
+                    offSetX = (int) (-markerView.getLeft() + markerView.getWidth() * markerLayoutParams.anchorX);
+                    offSetY = (int) (-markerView.getTop() + markerView.getHeight() * markerLayoutParams.anchorY);
+                }
+                else {
+                    offSetX = (int) (markerView.getWidth() * markerLayoutParams.anchorX);
+                    offSetY = (int) (markerView.getHeight() * markerLayoutParams.anchorY);
+                }
+
+                markerLayoutParams.leftMargin = (int) (markerLayout.getWidth() * markerLayoutParams.getPercentX() + offSetX);
+                markerLayoutParams.topMargin = (int) (markerLayout.getHeight() * markerLayoutParams.getPercentY() + offSetY);
+            }
+        }
     }
 
     private void fixMeasure(){
@@ -123,22 +143,7 @@ public class MarkPanelView extends FrameLayout {
         for(int index = 0; index < childCount; index++){
             View markerParent = markerLayout.getChildAt(index);
             if( markerParent.getVisibility() != GONE ) {
-                MarkerLayoutParams markerLayoutParams = (MarkerLayoutParams) markerParent.getLayoutParams();
-                View markerView = (View) markerParent.getTag(R.id.marker_child_id);
-                int offSetX, offSetY;
-                if(markerParent != markerView){
-                    offSetX = (int) (-markerView.getLeft() + markerView.getWidth() * markerLayoutParams.anchorX);
-                    offSetY = (int) (-markerView.getTop() + markerView.getHeight() * markerLayoutParams.anchorY);
-                }
-                else {
-                    offSetX = (int) (markerView.getWidth() * markerLayoutParams.anchorX);
-                    offSetY = (int) (markerView.getHeight() * markerLayoutParams.anchorY);
-                }
-
-                markerLayoutParams.leftMargin = (int) (markerLayout.getWidth() * markerLayoutParams.getPercentX() + offSetX);
-                markerLayoutParams.topMargin = (int) (markerLayout.getHeight() * markerLayoutParams.getPercentY() + offSetY);
-                markerParent.setLayoutParams(markerLayoutParams);
-                Log.i("LLL", "left:"+markerLayoutParams.leftMargin + " offSetX:"+ offSetX);
+                markerParent.requestLayout();
             }
         }
     }
