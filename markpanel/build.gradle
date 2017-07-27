@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 21
@@ -22,3 +23,19 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 }
+
+android {
+    lintOptions {
+        abortOnError false
+    }
+}
+
+publish {
+    userOrg = 'wangchunlong'
+    groupId = 'com.wcl.markpanel'
+    artifactId = 'markpanel'
+    publishVersion = '1.0.0'
+    desc = 'Oh hi, this is a nice description for a project, right?'
+    website = 'https://github.com/wcl9900/MarkPanel'
+}
+

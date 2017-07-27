@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MarkPanel.iml" filepath="$PROJECT_DIR$/MarkPanel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/markpanel/app.iml" filepath="$PROJECT_DIR$/markpanel/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/markpanel/markpanel.iml" filepath="$PROJECT_DIR$/markpanel/markpanel.iml" />
     </modules>
