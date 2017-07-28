@@ -4,10 +4,18 @@
 
     **效果图**
     
-![name](https://raw.githubusercontent.com/wcl9900/MarkPanel/master/markpanel.gif)
+    ![name](https://raw.githubusercontent.com/wcl9900/MarkPanel/master/markpanel.gif)
 
     **使用方式**
-
+    
+    Gradle
+    
+    repositories {       
+         jcenter()
+     }
+     
+    compile 'com.wcl.markpanel:markpanel:1.0.0'
+    
     1.点击触发添加标记点
     markPanelView.setOnMarkerFireAddListener(new OnMarkerFireAddListener() {
             @Override
