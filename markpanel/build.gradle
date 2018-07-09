@@ -1,13 +1,11 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 26
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 24
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -30,12 +28,22 @@ android {
     }
 }
 
-publish {
-    userOrg = 'wangchunlong'
-    groupId = 'com.wcl.markpanel'
-    artifactId = 'markpanel'
-    publishVersion = '1.0.0'
-    desc = 'Oh hi, this is a nice description for a project, right?'
-    website = 'https://github.com/wcl9900/MarkPanel'
+ext{
+    versionName = "1.0.0"//版本号
+    siteUrl = 'https://github.com/wcl9900/MarkPanel'    // project homepage
+    gitUrl = 'https://github.com/wcl9900/MarkPanel.git' // project git
+
+    groupId = "com.wcl.markpanel" //组名称
+    artifactId = "markpanel"
+
+    repository = "maven"//仓库名称
+    userOrgName = "wangchunlong"//组织名称
+
+    //库描述介绍
+    descRep = ""
+    //库版本信息描述
+    descVersion = ""
 }
 
+//    apply from: 'https://raw.githubusercontent.com/wcl9900/jcenter/master/publishJCenter.gradle'
+apply from: 'https://gitee.com/wcl9900/jcenter/raw/master/publishJCenter.gradle'
