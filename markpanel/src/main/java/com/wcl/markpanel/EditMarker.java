@@ -20,6 +20,7 @@ public class EditMarker{
     private Float anchorY;
 
     private View markerView;
+    private View touchView;
 
     private Object data;
 
@@ -43,21 +44,26 @@ public class EditMarker{
         this.anchorX = anchorX;
         this.anchorY = anchorY;
         this.markerView = markerView;
+        this.touchView = markerView;
 
-        View markerChildView = markerView.findViewById(R.id.marker_child_id);
-        View markerRemoveView = markerView.findViewById(R.id.marker_remove_id);
-        if(markerChildView != null){
-            markerView.setTag(R.id.marker_child_id, markerChildView);
-            markerChildView.setTag(R.id.marker_parent_id, markerView);
-        }
-        else {
-            markerView.setTag(R.id.marker_child_id, markerView);
-            markerView.setTag(R.id.marker_parent_id, markerView);
-        }
+        markerView.setTag(R.id.marker_view_touch, touchView);
+        touchView.setTag(R.id.marker_view, markerView);
+
+        View markerRemoveView = markerView.findViewById(R.id.marker_view_remove);
         if(markerRemoveView != null){
-            markerView.setTag(R.id.marker_remove_id, markerRemoveView);
+            markerView.setTag(R.id.marker_view_remove, markerRemoveView);
         }
-        markerView.setTag(R.id.marker_id, this);
+        markerView.setTag(R.id.marker_edit, this);
+    }
+
+    public View getTouchView() {
+        return touchView;
+    }
+
+    public void setTouchView(View touchView) {
+        this.touchView = touchView;
+        markerView.setTag(R.id.marker_view_touch, touchView);
+        touchView.setTag(R.id.marker_view, markerView);
     }
 
     public Object getData() {

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@id/marker_child_id"
+        android:id="@+id/iv_hot"
         android:layout_width="@dimen/marker_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -13,7 +13,7 @@
         android:src="@drawable/biaoji" />
 
     <ImageView
-        android:id="@id/marker_remove_id"
+        android:id="@id/marker_view_remove"
         android:layout_width="@dimen/marker_close_width"
         android:layout_height="@dimen/marker_close_width"
         android:layout_gravity="top|right"

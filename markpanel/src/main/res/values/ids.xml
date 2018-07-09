@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="marker_id" type="id"/>
-    <item name="marker_remove_id" type="id"/>
-    <item name="marker_child_id" type="id"/>
-    <item name="marker_parent_id" type="id"/>
+    <item name="marker_edit" type="id"/>
+    <item name="marker_view" type="id"/>
+    <item name="marker_view_remove" type="id"/>
+    <item name="marker_view_touch" type="id"/>
 </resources>
