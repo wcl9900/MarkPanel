@@ -29,7 +29,7 @@ android {
 }
 
 ext{
-    versionName = "1.1.0"//版本号
+    versionName = "1.1.1"//版本号
     siteUrl = 'https://github.com/wcl9900/MarkPanel'    // project homepage
     gitUrl = 'https://github.com/wcl9900/MarkPanel.git' // project git
 

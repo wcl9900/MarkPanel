@@ -201,6 +201,10 @@ public class MarkPanelView extends FrameLayout {
         this.onMarkerChangeListener = onMarkerChangeListener;
     }
 
+    public List<EditMarker> getMarkerList() {
+        return markerList;
+    }
+
     /**
      * 设定Map图片
      * @param path 磁盘文件路径
