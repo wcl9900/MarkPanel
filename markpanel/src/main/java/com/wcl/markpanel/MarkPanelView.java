@@ -344,10 +344,10 @@ public class MarkPanelView extends FrameLayout {
                 markerView.requestLayout();
                 prePoint.set(event.getRawX(), event.getRawY());
 
+                EditMarker marker = (EditMarker) markerView.getTag(R.id.marker_edit);
+                marker.setPercentX(markerLayoutParams.percentX);
+                marker.setPercentY(markerLayoutParams.percentY);
                 if(onMarkerChangeListener != null){
-                    EditMarker marker = (EditMarker) markerView.getTag(R.id.marker_edit);
-                    marker.setPercentX(markerLayoutParams.percentX);
-                    marker.setPercentY(markerLayoutParams.percentY);
                     onMarkerChangeListener.OnMarkerChangeListener(marker);
                 }
                 return true;
