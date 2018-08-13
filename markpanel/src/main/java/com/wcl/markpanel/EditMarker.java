@@ -16,6 +16,9 @@ public class EditMarker{
     private Integer width;
     private Integer height;
 
+    private float contentWidth = 0;
+    private float contentHeight = 0;
+
     private Float anchorX;
     private Float anchorY;
 
@@ -109,6 +112,33 @@ public class EditMarker{
     public View getMarkerView() {
         return markerView;
     }
+
+    /**
+     * 设定内容区域所占Map底图宽高比例
+     * @param contentWidth 宽占比
+     * @param contentHeight 高占比
+     */
+    void setContentSize(float contentWidth, float contentHeight) {
+        this.contentWidth = contentWidth;
+        this.contentHeight = contentHeight;
+    }
+
+    /**
+     * 获取内容区域所占宽占比 0f-1f
+     * @return
+     */
+    public float getContentWidth() {
+        return contentWidth;
+    }
+
+    /**
+     * 获取内容区域所占高占比 0f-1f
+     * @return
+     */
+    public float getContentHeight() {
+        return contentHeight;
+    }
+
 
     public void setPercentX(float percentX) {
         this.percentX = percentX;

@@ -140,6 +140,14 @@ public class MarkPanelView extends FrameLayout {
             int markerLeft = (int) (markerLayout.getWidth() * markerLayoutParams.getPercentX() + offSetX);
             int markerTop = (int) (markerLayout.getHeight() * markerLayoutParams.getPercentY() + offSetY);
 
+            EditMarker editMarker = (EditMarker) markerView.getTag(R.id.marker_edit);
+            editMarker.setContentSize(
+                    markerTouchView.getMeasuredWidth() / (float)(markerLayout.getMeasuredWidth()),
+                    markerTouchView.getMeasuredHeight() / (float)(markerLayout.getMeasuredHeight()));
+            if(onMarkerChangeListener != null){
+                onMarkerChangeListener.OnMarkerChangeListener(editMarker);
+            }
+
             markerView.layout(markerLeft, markerTop,
                     markerLeft + markerView.getMeasuredWidth(),
                     markerTop + markerView.getMeasuredHeight());
@@ -322,7 +330,8 @@ public class MarkPanelView extends FrameLayout {
                     return true;
                 }
                 View markerView = (View) v.getTag(R.id.marker_view);
-                ((EditMarker)markerView.getTag(R.id.marker_edit)).setClickEnable(false);
+                EditMarker editMarker = (EditMarker) markerView.getTag(R.id.marker_edit);
+                editMarker.setClickEnable(false);
                 ((View)markerView.getTag(R.id.marker_view_touch)).setLongClickable(false);
                 ((View)markerView.getTag(R.id.marker_view_touch)).setOnLongClickListener(null);
 
@@ -344,11 +353,10 @@ public class MarkPanelView extends FrameLayout {
                 markerView.requestLayout();
                 prePoint.set(event.getRawX(), event.getRawY());
 
-                EditMarker marker = (EditMarker) markerView.getTag(R.id.marker_edit);
-                marker.setPercentX(markerLayoutParams.percentX);
-                marker.setPercentY(markerLayoutParams.percentY);
+                editMarker.setPercentX(markerLayoutParams.percentX);
+                editMarker.setPercentY(markerLayoutParams.percentY);
                 if(onMarkerChangeListener != null){
-                    onMarkerChangeListener.OnMarkerChangeListener(marker);
+                    onMarkerChangeListener.OnMarkerChangeListener(editMarker);
                 }
                 return true;
             }

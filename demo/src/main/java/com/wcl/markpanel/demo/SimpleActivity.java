@@ -3,6 +3,7 @@ package com.wcl.markpanel.demo;
 import android.app.Activity;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -64,7 +65,7 @@ public class SimpleActivity extends Activity {
 
         @Override
         public void OnMarkerChangeListener(EditMarker marker) {
-
+            Log.i("MarkPanel", "OnMarkerChangeListener");
         }
     };
 
