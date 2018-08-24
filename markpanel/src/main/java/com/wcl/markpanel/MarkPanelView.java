@@ -117,6 +117,8 @@ public class MarkPanelView extends FrameLayout {
                 MeasureSpec.makeMeasureSpec(markerHeight, MeasureSpec.EXACTLY));
     }
 
+    int[] markerViewLocation = new int[2];
+    int[] touchViewLocation = new int[2];
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
@@ -128,9 +130,11 @@ public class MarkPanelView extends FrameLayout {
             MarkerLayoutParams markerLayoutParams = (MarkerLayoutParams) markerView.getLayoutParams();
             View markerTouchView = (View) markerView.getTag(R.id.marker_view_touch);
             int offSetX, offSetY;
+            markerView.getLocationOnScreen(markerViewLocation);
+            markerTouchView.getLocationOnScreen(touchViewLocation);
             if(markerView != markerTouchView){
-                offSetX = (int) (-markerTouchView.getLeft() + markerTouchView.getWidth() * markerLayoutParams.anchorX);
-                offSetY = (int) (-markerTouchView.getTop() + markerTouchView.getHeight() * markerLayoutParams.anchorY);
+                offSetX = (int) (-(touchViewLocation[0] - markerViewLocation[0]) + markerTouchView.getWidth() * markerLayoutParams.anchorX);
+                offSetY = (int) (-(touchViewLocation[1] - markerViewLocation[1]) + markerTouchView.getHeight() * markerLayoutParams.anchorY);
             }
             else {
                 offSetX = (int) (markerTouchView.getWidth() * markerLayoutParams.anchorX);
